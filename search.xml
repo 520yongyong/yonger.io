@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>1602使用</title>
-    <url>/2020/02/28/yongyong/</url>
-    <content><![CDATA[<h1 id="1602液晶简单的使用"><a href="#1602液晶简单的使用" class="headerlink" title="1602液晶简单的使用"></a>1602液晶简单的使用</h1><h2 id="RS-数据（1）-命令选择端（0）"><a href="#RS-数据（1）-命令选择端（0）" class="headerlink" title="RS:数据（1）/命令选择端（0）"></a>RS:数据（1）/命令选择端（0）</h2><h2 id="RW：读（1）-写选择端（0）"><a href="#RW：读（1）-写选择端（0）" class="headerlink" title="RW：读（1）/写选择端（0）"></a>RW：读（1）/写选择端（0）</h2><h2 id="E：使能信号"><a href="#E：使能信号" class="headerlink" title="E：使能信号"></a>E：使能信号</h2><h4 id="实际上只需要操作以上三个接口"><a href="#实际上只需要操作以上三个接口" class="headerlink" title="实际上只需要操作以上三个接口"></a>实际上只需要操作以上三个接口</h4><h4 id="一般液晶用来显示数据，不需要读数据，所以RW位一直置低电平"><a href="#一般液晶用来显示数据，不需要读数据，所以RW位一直置低电平" class="headerlink" title="一般液晶用来显示数据，不需要读数据，所以RW位一直置低电平"></a>一般液晶用来显示数据，不需要读数据，所以RW位一直置低电平</h4><h4 id="步骤为，选择命令端，送命令，使能信号由高到低，数据选择端，送数据，使能信号由高到低"><a href="#步骤为，选择命令端，送命令，使能信号由高到低，数据选择端，送数据，使能信号由高到低" class="headerlink" title="步骤为，选择命令端，送命令，使能信号由高到低，数据选择端，送数据，使能信号由高到低"></a>步骤为，选择命令端，送命令，使能信号由高到低，数据选择端，送数据，使能信号由高到低</h4><h4 id="注意51单片机中数据连接P0口"><a href="#注意51单片机中数据连接P0口" class="headerlink" title="注意51单片机中数据连接P0口"></a>注意51单片机中数据连接P0口</h4>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>hardware</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git的理解</title>
     <url>/2020/04/29/git%E7%9A%84%E7%90%86%E8%A7%A3/</url>
     <content><![CDATA[<h2 id="git-它就是一个版本管理工具，方便在于保存文件的不同版本，可以撤回"><a href="#git-它就是一个版本管理工具，方便在于保存文件的不同版本，可以撤回" class="headerlink" title="git 它就是一个版本管理工具，方便在于保存文件的不同版本，可以撤回"></a>git 它就是一个版本管理工具，方便在于保存文件的不同版本，可以撤回</h2><h4 id="所有的文件都处于四种状态，未跟踪，已修改，已暂存，已提交"><a href="#所有的文件都处于四种状态，未跟踪，已修改，已暂存，已提交" class="headerlink" title="所有的文件都处于四种状态，未跟踪，已修改，已暂存，已提交"></a>所有的文件都处于四种状态，未跟踪，已修改，已暂存，已提交</h4><h4 id="只要触发提交就会产生新的版本。"><a href="#只要触发提交就会产生新的版本。" class="headerlink" title="只要触发提交就会产生新的版本。"></a>只要触发提交就会产生<strong>新的版本</strong>。</h4><h4 id="想要恢复文件"><a href="#想要恢复文件" class="headerlink" title="想要恢复文件"></a>想要恢复文件</h4><ul>
@@ -24,6 +13,17 @@
       </categories>
       <tags>
         <tag>software</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1602使用</title>
+    <url>/2020/02/28/yongyong/</url>
+    <content><![CDATA[<h1 id="1602液晶简单的使用"><a href="#1602液晶简单的使用" class="headerlink" title="1602液晶简单的使用"></a>1602液晶简单的使用</h1><h2 id="RS-数据（1）-命令选择端（0）"><a href="#RS-数据（1）-命令选择端（0）" class="headerlink" title="RS:数据（1）/命令选择端（0）"></a>RS:数据（1）/命令选择端（0）</h2><h2 id="RW：读（1）-写选择端（0）"><a href="#RW：读（1）-写选择端（0）" class="headerlink" title="RW：读（1）/写选择端（0）"></a>RW：读（1）/写选择端（0）</h2><h2 id="E：使能信号"><a href="#E：使能信号" class="headerlink" title="E：使能信号"></a>E：使能信号</h2><h4 id="实际上只需要操作以上三个接口"><a href="#实际上只需要操作以上三个接口" class="headerlink" title="实际上只需要操作以上三个接口"></a>实际上只需要操作以上三个接口</h4><h4 id="一般液晶用来显示数据，不需要读数据，所以RW位一直置低电平"><a href="#一般液晶用来显示数据，不需要读数据，所以RW位一直置低电平" class="headerlink" title="一般液晶用来显示数据，不需要读数据，所以RW位一直置低电平"></a>一般液晶用来显示数据，不需要读数据，所以RW位一直置低电平</h4><h4 id="步骤为，选择命令端，送命令，使能信号由高到低，数据选择端，送数据，使能信号由高到低"><a href="#步骤为，选择命令端，送命令，使能信号由高到低，数据选择端，送数据，使能信号由高到低" class="headerlink" title="步骤为，选择命令端，送命令，使能信号由高到低，数据选择端，送数据，使能信号由高到低"></a>步骤为，选择命令端，送命令，使能信号由高到低，数据选择端，送数据，使能信号由高到低</h4><h4 id="注意51单片机中数据连接P0口"><a href="#注意51单片机中数据连接P0口" class="headerlink" title="注意51单片机中数据连接P0口"></a>注意51单片机中数据连接P0口</h4>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>hardware</tag>
       </tags>
   </entry>
   <entry>
