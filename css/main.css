@@ -417,7 +417,7 @@ pre {
 }
 pre,
 code {
-  font-family: 'Pi Mono', consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
+  font-family: 'consolas', consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
 }
 code {
   background: #eee;
@@ -834,6 +834,11 @@ pre .javascript .function {
 .post-body .note.danger h5,
 .post-body .note.danger h6 {
   color: #d9534f;
+}
+.pdfobject-container iframe,
+.pdfobject-container embed {
+  height: 400px;
+  width: 100%;
 }
 .pagination .prev,
 .pagination .next,
@@ -1300,7 +1305,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #7c3057;
+  background: #947d4f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1627,10 +1632,7 @@ pre .javascript .function {
   position: fixed;
   transition-property: bottom;
   z-index: 1300;
-  width: 24px;
-}
-.back-to-top span {
-  display: none;
+  width: initial;
 }
 .back-to-top:hover {
   color: #fc6423;
