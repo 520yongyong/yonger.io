@@ -138,7 +138,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">5</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">6</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -195,6 +195,100 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yonger.vip/2020/05/01/%E7%94%A8ssh%E8%BF%9E%E6%8E%A5%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="咏儿">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记录一点一滴">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/01/%E7%94%A8ssh%E8%BF%9E%E6%8E%A5%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-title-link" itemprop="url">用ssh连接云服务器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-01 15:27:24 / 修改时间：16:56:09" itemprop="dateCreated datePublished" datetime="2020-05-01T15:27:24+08:00">2020-05-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>658</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="这个东西搞了我好久，终于好了"><a href="#这个东西搞了我好久，终于好了" class="headerlink" title="这个东西搞了我好久，终于好了"></a>这个东西搞了我好久，终于好了</h4><ul>
+<li>首先，生成新的ssh（假设名字为name），之前没有的话新创建即可</li>
+<li>在user文件夹下的.ssh/config文件中配置(没有的话新建一个)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host cloud    (这个名字随便取，到时要用到)</span><br><span class="line">HostName 39.101.162.253    (服务器的IP)</span><br><span class="line">User root     (服务器的)</span><br><span class="line">port 22</span><br><span class="line">IdentityFile ~&#x2F;.ssh&#x2F;name</span><br></pre></td></tr></table></figure></li>
+<li>注意      </li>
+</ul>
+<p>Host的名字随便取，到时需要用到<br>HostName为云服务器的IP<br>User为云服务器的用户，默认root<br>port为端口号，一般22(需要服务器开启端口)<br>IdentityFile 为刚刚新生成的ssh文件     </p>
+<ul>
+<li>然后执行命令，在cmd、shell、git bash都可以，root为用户，@后是IP<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i ~&#x2F;.ssh&#x2F;name.pub root@39.101.162.253</span><br></pre></td></tr></table></figure></li>
+<li>接着输入密码进行身份验证</li>
+<li>成功后会如图所示,一般会成功，有错误自行检查<img style="float:center" src="/images/sshtovirtual.png" alt="Pulpit rock" width="100%" height="200">   </li>
+<li>接着在远程系统中找到authorized_keys这个文件并添加到对应的.ssh文件夹中（我是默认就有的添加的）</li>
+<li>最后在远程系统的根目录执行命令重启ssh服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;init.d&#x2F;ssh restart</span><br></pre></td></tr></table></figure></li>
+<li>然后在本地执行命令(cloud是上面config文件的Host名字)，你会发现现在不需要输入密码了，当然失败还是会提示输入密码的..<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh cloud</span><br></pre></td></tr></table></figure></li>
+<li>接着就可以直接操作远程系统了，其实也可以用vscode配置插件，更香。。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -285,92 +379,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yonger.vip/2020/04/30/%E4%BD%BF%E7%94%A8%E5%BD%95%E6%92%AD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="咏儿">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="记录一点一滴">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/30/%E4%BD%BF%E7%94%A8%E5%BD%95%E6%92%AD/" class="post-title-link" itemprop="url">使用录播加速</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-04-30 00:00:00 / 修改时间：15:00:46" itemprop="dateCreated datePublished" datetime="2020-04-30T00:00:00+08:00">2020-04-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>354</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="我的电路原理老师喜欢多个班一起上，一方面可以减少重复的内容，相同的课不需要重复讲，相对于线下课减少讲授时间，另一方面就是，他讲授的时间段我恰好有课，只能看录播，这就可以加速了嘛，老师的讲课速度，我3倍速听到刚刚好，不犯困。但是腾讯课堂只有两倍速，如何提到3倍呢"><a href="#我的电路原理老师喜欢多个班一起上，一方面可以减少重复的内容，相同的课不需要重复讲，相对于线下课减少讲授时间，另一方面就是，他讲授的时间段我恰好有课，只能看录播，这就可以加速了嘛，老师的讲课速度，我3倍速听到刚刚好，不犯困。但是腾讯课堂只有两倍速，如何提到3倍呢" class="headerlink" title="我的电路原理老师喜欢多个班一起上，一方面可以减少重复的内容，相同的课不需要重复讲，相对于线下课减少讲授时间，另一方面就是，他讲授的时间段我恰好有课，只能看录播，这就可以加速了嘛，老师的讲课速度，我3倍速听到刚刚好，不犯困。但是腾讯课堂只有两倍速，如何提到3倍呢"></a>我的电路原理老师喜欢多个班一起上，一方面可以减少重复的内容，相同的课不需要重复讲，相对于线下课减少讲授时间，另一方面就是，他讲授的时间段我恰好有课，只能看录播，这就可以加速了嘛，老师的讲课速度，我3倍速听到刚刚好，不犯困。但是腾讯课堂只有两倍速，如何提到3倍呢</h4><ul>
-<li>打开Google Chrome浏览器，按一下键盘的F12，其他浏览器右键选择“检查元素”</li>
-<li>然后弹出来一个小框框，选择控制台”console”<img style="float:center" src="/images/rate.png" alt="Pulpit rock" width="100%" height="400"></li>
-<li>输入命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.querySelector(&#39;video&#39;).playbackRate&#x3D;n;</span><br></pre></td></tr></table></figure></li>
-<li>其中n为速度，n=3就以三倍速度播放。注意命令中所有的标点都是英文字符，不要使用中文，否则报错</li>
-<li>然后视频会以n倍速度播放，刷新页面需要重新输入命令<h4 id="其实用这个来刷网课也是不错的选择。。。"><a href="#其实用这个来刷网课也是不错的选择。。。" class="headerlink" title="其实用这个来刷网课也是不错的选择。。。"></a>其实用这个来刷网课也是不错的选择。。。</h4></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -442,7 +450,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -500,7 +508,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">2k</span>
+    <span title="站点总字数">3k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
